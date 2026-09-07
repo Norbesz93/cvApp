@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Papp Norbert - CV Timeline</title>
+  <style>
+    :root {
+      --bg: #eef3f7;
+      --paper: #ffffff;
+      --text: #1e293b;
+      --muted: #5b6778;
+      --accent: #0f766e;
+      --accent-soft: #d8eeea;
+      --line: #d8e1ea;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 32px 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        linear-gradient(180deg, rgba(15, 118, 110, 0.08), transparent 200px),
+        linear-gradient(180deg, #f8fbfd 0%, #edf3f8 100%);
+    }
+
+    .page-actions {
+      max-width: 1100px;
+      margin: 0 auto 18px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .print-button {
+      border: 0;
+      background: var(--accent);
+      color: #ffffff;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .cv {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 18px 54px rgba(30, 41, 59, 0.1);
+    }
+
+    .hero {
+      padding: 40px 44px;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 190px;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+
+    .hero .subtitle {
+      margin: 10px 0 14px;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.9rem;
+    }
+
+    .hero .summary {
+      margin: 0;
+      max-width: 62ch;
+      color: var(--muted);
+    }
+
+    .photo-box {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: 18px;
+      border: 2px dashed #8dc7be;
+      background: linear-gradient(180deg, #f8fffd 0%, #edf8f5 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 290px minmax(0, 1fr);
+    }
+
+    .sidebar {
+      padding: 34px 32px 40px 40px;
+      border-right: 1px solid var(--line);
+      background: #fbfdfd;
+    }
+
+    .main {
+      padding: 34px 40px 40px 34px;
+    }
+
+    .section + .section { margin-top: 28px; }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 0.92rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    li + li { margin-top: 8px; }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 124px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--line);
+    }
+
+    .job {
+      display: grid;
+      grid-template-columns: 110px minmax(0, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .job-period {
+      position: relative;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.94rem;
+      line-height: 1.5;
+      padding-top: 2px;
+    }
+
+    .job-period::after {
+      content: "";
+      position: absolute;
+      right: -19px;
+      top: 7px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px #ffffff;
+    }
+
+    .job-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 20px;
+      background: #ffffff;
+    }
+
+    .job-card ul { margin-top: 10px; }
+
+    .muted { color: var(--muted); }
+
+    @media (max-width: 900px) {
+      .hero,
+      .content,
+      .job {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .timeline::before,
+      .job-period::after {
+        display: none;
+      }
+    }
+
+    @media print {
+      body { padding: 0; background: #ffffff; }
+      .page-actions { display: none; }
+      .cv { box-shadow: none; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-actions">
+    <button class="print-button" type="button" onclick="window.print()">Nyomtatás</button>
+  </div>
+
+  <article class="cv">
+    <header class="hero">
+      <div>
+        <h1>Papp Norbert</h1>
+        <p class="subtitle">Tech Lead / Full Stack fejlesztő</p>
+        <p class="summary">31 éves vagyok, sport szerető, jókedélyű, és imádom a videójátékokat. Magabiztos stack: HTML, CSS, JS, React, Express backend, SQL / NoSQL.</p>
+      </div>
+      <div class="photo-box">Kép helye</div>
+    </header>
+
+    <section class="content">
+      <aside class="sidebar">
+        <section class="section">
+          <h2>Elérhetőség</h2>
+          <ul>
+            <li><strong>Telefon:</strong> +36 30 550 10 29</li>
+            <li><strong>Email:</strong> norbesz0826@gmail.com</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>Tapasztalatok</h2>
+          <ul>
+            <li>3 év: VBA, C#</li>
+            <li>5 év: React, NodeJS, ExpressJS, NextJS</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>Adatbázisok</h2>
+          <ul>
+            <li>Oracle - 3 év</li>
+            <li>MongoDB - 3 év</li>
+            <li>MySQL - 2 év</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>Technológiák</h2>
+          <div class="tags">
+            <span class="tag">Agilis</span>
+            <span class="tag">Vízesés modell</span>
+            <span class="tag">Git</span>
+            <span class="tag">JIRA</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">SCSS</span>
+            <span class="tag">Tailwind</span>
+            <span class="tag">Bootstrap</span>
+            <span class="tag">Material UI</span>
+            <span class="tag">Redux</span>
+            <span class="tag">PHP</span>
+            <span class="tag">MSSQL</span>
+            <span class="tag">LDAP</span>
+            <span class="tag">Docker</span>
+            <span class="tag">WG Firewall</span>
+            <span class="tag">Cisco switchek</span>
+            <span class="tag">Figma</span>
+          </div>
+        </section>
+      </aside>
+
+      <main class="main">
+        <section class="section">
+          <h2>Szakmai tapasztalat</h2>
+          <div class="timeline">
+            <article class="job">
+              <div class="job-period">2025. Június<br />Jelenleg</div>
+              <div class="job-card">
+                <h3>Tech Lead - HPH Digital Hungaropharma cégcsoport</h3>
+                <ul>
+                  <li>Alma Patika mobil App fejlesztése, és fejlesztés koordinálása</li>
+                  <li>Agentic fejlesztői workflow kialakítása</li>
+                  <li>IxNet Orvosi szoftver modernizálása</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="job">
+              <div class="job-period">2023. Szeptember<br />2025. Május</div>
+              <div class="job-card">
+                <h3>Egyéni vállalkozó - Frontend fejlesztő</h3>
+                <ul>
+                  <li>Pinkpos KFT - pincérrendszer admin felület fejlesztés</li>
+                  <li>HelloPay - FairTipping webpage</li>
+                  <li>Pharmanext - webshop kezelés / redesign</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="job">
+              <div class="job-period">2021<br />2023</div>
+              <div class="job-card">
+                <h3>Magyarmet Kft. - Full Stack fejlesztő</h3>
+                <ul>
+                  <li>Eszköznyilvántartó rendszer</li>
+                  <li>ERP webes jelentő felület</li>
+                  <li>Raktári mobilalkalmazás</li>
+                  <li>Árfolyamkövetéses rendszer (tőzsdei adatokkal)</li>
+                  <li>AD autentikáció</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="job">
+              <div class="job-period">2015<br />2018</div>
+              <div class="job-card">
+                <h3>Magyar Posta - Alkalmazás üzemeltető</h3>
+                <ul>
+                  <li>Hálózatok</li>
+                  <li>Excel makrók</li>
+                  <li>Nyomtató szerverek</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </section>
+  </article>
+</body>
+</html>

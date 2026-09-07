@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Papp Norbert - CV</title>
+  <style>
+    :root {
+      --bg: #f4f1ea;
+      --paper: #fffdf8;
+      --text: #1f2933;
+      --muted: #52606d;
+      --accent: #8b5e3c;
+      --accent-soft: #d8c3b3;
+      --line: #e6ddd3;
+      --tag: #f0e6dc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(circle at top left, #efe2d2 0, transparent 32%),
+        linear-gradient(135deg, #f7f3ed 0%, #ebe2d7 100%);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 32px 16px;
+    }
+
+    .page-actions {
+      max-width: 980px;
+      margin: 0 auto 18px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .print-button {
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 18px;
+      background: #1f2933;
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(31, 41, 51, 0.18);
+    }
+
+    .print-button:hover {
+      background: #111827;
+    }
+
+    .cv {
+      max-width: 980px;
+      margin: 0 auto;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: 0 24px 70px rgba(56, 42, 28, 0.12);
+      overflow: hidden;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) 220px;
+      gap: 32px;
+      padding: 40px;
+      background: linear-gradient(135deg, #fff8f0 0%, #f3e7da 100%);
+      border-bottom: 1px solid var(--line);
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 2.8rem;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .hero .title {
+      margin: 0 0 20px;
+      font-size: 1.05rem;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .photo-box {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border: 2px dashed var(--accent);
+      border-radius: 20px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(216, 195, 179, 0.35)),
+        repeating-linear-gradient(
+          -45deg,
+          rgba(139, 94, 60, 0.08),
+          rgba(139, 94, 60, 0.08) 10px,
+          transparent 10px,
+          transparent 20px
+        );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--accent);
+      font-weight: 700;
+      padding: 16px;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+    }
+
+    .sidebar,
+    .main {
+      padding: 32px 40px 40px;
+    }
+
+    .sidebar {
+      background: #fcf8f2;
+      border-right: 1px solid var(--line);
+    }
+
+    .section + .section {
+      margin-top: 28px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 1rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1.1rem;
+    }
+
+    .contact-list,
+    .plain-list,
+    .job-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .contact-list li,
+    .plain-list li {
+      margin-bottom: 10px;
+    }
+
+    .plain-list li,
+    .job-list li {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .plain-list li::before,
+    .job-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .skill-group + .skill-group {
+      margin-top: 18px;
+    }
+
+    .skill-group h3 {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--tag);
+      color: #5f4128;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .job + .job {
+      margin-top: 26px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line);
+    }
+
+    .job-period {
+      display: inline-block;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .profile {
+      margin: 0;
+    }
+
+    @media (max-width: 820px) {
+      .hero,
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 28px;
+      }
+
+      .sidebar,
+      .main {
+        padding: 28px;
+      }
+
+      .sidebar {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .photo-box {
+        max-width: 220px;
+      }
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: #ffffff;
+      }
+
+      .page-actions {
+        display: none;
+      }
+
+      .cv {
+        box-shadow: none;
+        border-radius: 0;
+        border: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-actions">
+    <button class="print-button" type="button" onclick="window.print()">Nyomtatás</button>
+  </div>
+
+  <article class="cv">
+    <header class="hero">
+      <div>
+        <h1>Papp Norbert</h1>
+        <p class="title">Tech Lead / Full Stack fejlesztő</p>
+        <p>
+          31 éves vagyok, sport szerető, jókedélyű, és imádom a videójátékokat.
+          Magabiztos stack: HTML, CSS, JS, React, Express backend, SQL / NoSQL.
+        </p>
+      </div>
+      <div class="photo-box">Kép helye</div>
+    </header>
+
+    <section class="content">
+      <aside class="sidebar">
+        <section class="section">
+          <h2>Elérhetőség</h2>
+          <ul class="contact-list">
+            <li><strong>Telefon:</strong><br />+36 30 550 10 29</li>
+            <li><strong>Email:</strong><br />norbesz0826@gmail.com</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>Tapasztalatok</h2>
+          <ul class="plain-list">
+            <li>3 év: VBA, C#</li>
+            <li>5 év: React, NodeJS, ExpressJS, NextJS</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>Adatbázisok</h2>
+          <ul class="plain-list">
+            <li>Oracle - 3 év</li>
+            <li>MongoDB - 3 év</li>
+            <li>MySQL - 2 év</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>Technológiák és ismeretek</h2>
+          <div class="skill-group">
+            <h3>Módszertanok</h3>
+            <div class="tags">
+              <span class="tag">Agilis</span>
+              <span class="tag">Vízesés modell</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Verziókezelők</h3>
+            <div class="tags">
+              <span class="tag">Git</span>
+              <span class="tag">JIRA</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Egyéb</h3>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">SCSS</span>
+              <span class="tag">Tailwind</span>
+              <span class="tag">Bootstrap</span>
+              <span class="tag">Material UI</span>
+              <span class="tag">Redux</span>
+              <span class="tag">PHP</span>
+              <span class="tag">MSSQL</span>
+              <span class="tag">LDAP</span>
+              <span class="tag">Docker</span>
+              <span class="tag">WG Firewall</span>
+              <span class="tag">Cisco switchek</span>
+              <span class="tag">Figma</span>
+            </div>
+          </div>
+        </section>
+      </aside>
+
+      <main class="main">
+        <section class="section">
+          <h2>Szakmai tapasztalat</h2>
+
+          <article class="job">
+            <span class="job-period">2025. Június - Jelenleg</span>
+            <h3>Tech Lead - HPH Digital Hungaropharma cégcsoport</h3>
+            <ul class="job-list">
+              <li>Alma Patika mobil App fejlesztése, és fejlesztés koordinálása</li>
+              <li>Agentic fejlesztői workflow kialakítása</li>
+              <li>IxNet Orvosi szoftver modernizálása</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <span class="job-period">2023. Szeptember - 2025. Május</span>
+            <h3>Egyéni vállalkozó - Frontend fejlesztő</h3>
+            <ul class="job-list">
+              <li>Pinkpos KFT - pincérrendszer admin felület fejlesztés</li>
+              <li>HelloPay - FairTipping webpage</li>
+              <li>Pharmanext - webshop kezelés / redesign</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <span class="job-period">2021 - 2023</span>
+            <h3>Magyarmet Kft. - Full Stack fejlesztő</h3>
+            <ul class="job-list">
+              <li>Eszköznyilvántartó rendszer</li>
+              <li>ERP webes jelentő felület</li>
+              <li>Raktári mobilalkalmazás</li>
+              <li>Árfolyamkövetéses rendszer (tőzsdei adatokkal)</li>
+              <li>AD autentikáció</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <span class="job-period">2015 - 2018</span>
+            <h3>Magyar Posta - Alkalmazás üzemeltető</h3>
+            <ul class="job-list">
+              <li>Hálózatok</li>
+              <li>Excel makrók</li>
+              <li>Nyomtató szerverek</li>
+            </ul>
+          </article>
+        </section>
+      </main>
+    </section>
+  </article>
+</body>
+</html>

@@ -1,0 +1,1381 @@
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  background:
+    radial-gradient(circle at top left, rgba(214, 107, 77, 0.12), transparent 24%),
+    radial-gradient(circle at top right, rgba(15, 118, 110, 0.1), transparent 22%),
+    linear-gradient(180deg, #f7f1e8 0%, #ebeef4 100%);
+}
+
+.control-panel {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: auto;
+  padding: 32px 24px;
+  background: rgba(247, 244, 238, 0.92);
+  border-right: 1px solid rgba(31, 41, 55, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.panel-block + .panel-block {
+  margin-top: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8b5e3c;
+  font-weight: 700;
+}
+
+.control-panel h1 {
+  margin: 0;
+  font-size: 2.1rem;
+  line-height: 1.08;
+  color: #111827;
+}
+
+.control-panel h2 {
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.panel-copy,
+.panel-note {
+  margin: 12px 0 0;
+  color: #4b5563;
+  font-size: 0.98rem;
+}
+
+.template-picker {
+  display: grid;
+  gap: 10px;
+}
+
+.template-button,
+.export-button,
+.ghost-button,
+.upload-button {
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.template-button {
+  padding: 14px 16px;
+  text-align: left;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  display: grid;
+  gap: 4px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.template-button span {
+  font-weight: 700;
+  color: #111827;
+}
+
+.template-button small {
+  color: #6b7280;
+}
+
+.template-button:hover,
+.template-button.active {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.08);
+  border-color: rgba(139, 94, 60, 0.3);
+}
+
+.template-button.active {
+  background: linear-gradient(180deg, #fff7ef 0%, #fff 100%);
+}
+
+.upload-button,
+.ghost-button,
+.export-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  border-radius: 16px;
+  font-weight: 700;
+}
+
+.upload-button {
+  background: #1f2937;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.ghost-button {
+  background: transparent;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  color: #374151;
+}
+
+.export-button {
+  margin-top: 28px;
+  background: linear-gradient(135deg, #d66b4d 0%, #8b5e3c 100%);
+  color: #fff;
+  box-shadow: 0 18px 30px rgba(139, 94, 60, 0.22);
+}
+
+#photo-upload {
+  display: none;
+}
+
+.preview-shell {
+  padding: 32px;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.preview-label {
+  margin: 0 0 6px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #6b7280;
+}
+
+.preview-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #111827;
+}
+
+.preview-description {
+  margin: 0;
+  color: #4b5563;
+}
+
+.preview-stage {
+  overflow: auto;
+  padding: 24px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.cv-page {
+  width: 794px;
+  min-height: 1123px;
+  overflow: hidden;
+  background: #fff;
+  color: #1f2933;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
+}
+
+.cv-page h1,
+.cv-page h2,
+.cv-page h3,
+.cv-page p,
+.cv-page li,
+.cv-page span,
+.cv-page strong {
+  letter-spacing: normal;
+}
+
+.cv-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) 220px;
+  gap: 28px;
+  padding: 38px;
+  align-items: center;
+}
+
+.cv-hero h1,
+.minimal-header h1 {
+  margin: 0;
+  font-size: 2.8rem;
+  line-height: 1.04;
+}
+
+.cv-role {
+  margin: 12px 0 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cv-summary {
+  margin: 0;
+  line-height: 1.65;
+}
+
+.photo-box {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.cv-columns,
+.creative-panels {
+  display: grid;
+  grid-template-columns: 285px minmax(0, 1fr);
+}
+
+.cv-sidebar,
+.cv-main,
+.creative-panel {
+  padding: 30px 34px 36px;
+}
+
+.cv-sidebar {
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+.cv-section + .cv-section {
+  margin-top: 24px;
+}
+
+.skill-group + .skill-group {
+  margin-top: 12px;
+}
+
+.cv-page h2 {
+  margin: 0 0 14px;
+  font-size: 0.92rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cv-page h3 {
+  margin: 0 0 8px;
+  font-size: 1.08rem;
+}
+
+.plain-list,
+.job-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plain-list li + li,
+.job-list li + li {
+  margin-top: 10px;
+}
+
+.bullet-list li,
+.job-list li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.bullet-list li::before,
+.job-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.job-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.job-card {
+  padding: 18px 18px 20px;
+  border-radius: 18px;
+}
+
+.job-period {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.compact-section p {
+  margin: 0;
+}
+
+.compact-section p + p {
+  margin-top: 10px;
+}
+
+.minimal-line + .minimal-line {
+  margin-top: 12px;
+}
+
+.template-warm {
+  background: #fffdf8;
+}
+
+.template-warm .cv-hero {
+  background: linear-gradient(135deg, #fff8f0 0%, #f3e7da 100%);
+  border-bottom: 1px solid #e6ddd3;
+}
+
+.template-warm .cv-sidebar {
+  background: #fcf8f2;
+  border-right: 1px solid #e6ddd3;
+}
+
+.template-warm h2,
+.template-warm .cv-role,
+.template-warm .job-period {
+  color: #8b5e3c;
+}
+
+.template-warm .tag {
+  background: #f0e6dc;
+  color: #5f4128;
+}
+
+.template-warm .job-card {
+  border: 1px solid #ece2d7;
+  background: #fffefc;
+}
+
+.template-warm .warm-photo {
+  border: 2px dashed #8b5e3c;
+  border-radius: 20px;
+  color: #8b5e3c;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(216, 195, 179, 0.35)),
+    repeating-linear-gradient(-45deg, rgba(139, 94, 60, 0.08), rgba(139, 94, 60, 0.08) 10px, transparent 10px, transparent 20px);
+}
+
+.template-warm .bullet-list li::before,
+.template-warm .job-list li::before {
+  background: #8b5e3c;
+}
+
+.template-modern {
+  background: #101a2e;
+  color: #e5edf7;
+}
+
+.template-modern .modern-hero {
+  grid-template-columns: 210px minmax(0, 1fr);
+  background: linear-gradient(180deg, rgba(22, 35, 61, 0.98), rgba(16, 26, 46, 0.96));
+  border-bottom: 1px solid rgba(159, 176, 199, 0.18);
+}
+
+.template-modern .modern-sidebar {
+  background: rgba(8, 16, 29, 0.4);
+  border-right: 1px solid rgba(159, 176, 199, 0.18);
+}
+
+.template-modern .modern-main,
+.template-modern .modern-sidebar,
+.template-modern .cv-summary,
+.template-modern li,
+.template-modern p {
+  color: #b5c2d6;
+}
+
+.template-modern h2,
+.template-modern .cv-role,
+.template-modern .job-period {
+  color: #8be9fd;
+}
+
+.template-modern h1,
+.template-modern h3,
+.template-modern strong,
+.template-modern .tag {
+  color: #eff6ff;
+}
+
+.template-modern .tag {
+  background: rgba(86, 207, 225, 0.14);
+  border: 1px solid rgba(86, 207, 225, 0.12);
+}
+
+.template-modern .modern-job {
+  border: 1px solid rgba(139, 233, 253, 0.16);
+  background: rgba(8, 16, 29, 0.34);
+}
+
+.template-modern .modern-photo {
+  min-height: 260px;
+  border-radius: 24px;
+  border: 1px dashed rgba(139, 233, 253, 0.45);
+  color: #8be9fd;
+  background:
+    linear-gradient(180deg, rgba(86, 207, 225, 0.12), rgba(139, 233, 253, 0.06)),
+    repeating-linear-gradient(-45deg, rgba(86, 207, 225, 0.08), rgba(86, 207, 225, 0.08) 12px, transparent 12px, transparent 24px);
+}
+
+.template-modern .bullet-list li::before,
+.template-modern .job-list li::before {
+  background: #56cfe1;
+}
+
+.template-minimal {
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #fff;
+}
+
+.template-minimal .minimal-header {
+  padding: 36px 42px 24px;
+  border-bottom: 1px solid #dfdfda;
+}
+
+.template-minimal .minimal-columns {
+  grid-template-columns: 255px minmax(0, 1fr);
+}
+
+.template-minimal .minimal-sidebar {
+  background: #fcfcfa;
+  border-right: 1px solid #dfdfda;
+}
+
+.template-minimal h2,
+.template-minimal .cv-role {
+  color: #1e6f5c;
+}
+
+.template-minimal .cv-summary,
+.template-minimal p,
+.template-minimal li {
+  color: #5f5f5f;
+}
+
+.template-minimal .minimal-job {
+  border-top: 1px solid #dfdfda;
+  border-radius: 0;
+  padding-inline: 0;
+  padding-top: 20px;
+}
+
+.template-minimal .minimal-photo {
+  border: 1px dashed #bdbdb5;
+  color: #7a7a72;
+  min-height: 240px;
+  margin-bottom: 6px;
+}
+
+.template-minimal .job-card:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.template-minimal .bullet-list li::before,
+.template-minimal .job-list li::before {
+  background: #1e6f5c;
+}
+
+.template-creative {
+  background: #fffdf8;
+  color: #2e2433;
+}
+
+.template-creative .creative-hero {
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(214, 107, 77, 0.1), rgba(241, 178, 74, 0.08)),
+    linear-gradient(180deg, #fff8ef 0%, #fffdf8 100%);
+}
+
+.template-creative .creative-hero::after {
+  content: '';
+  position: absolute;
+  inset: auto -40px -60px auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(47, 127, 109, 0.08);
+}
+
+.template-creative .creative-panels {
+  grid-template-columns: 280px minmax(0, 1fr);
+}
+
+.template-creative .left-panel {
+  border-right: 1px solid #ecdac8;
+}
+
+.template-creative h2 {
+  color: #2f7f6d;
+}
+
+.template-creative .cv-role,
+.template-creative .job-period {
+  color: #d66b4d;
+}
+
+.template-creative .tag {
+  background: #fff5eb;
+  border: 1px solid #f2dcc4;
+  color: #2e2433;
+}
+
+.template-creative .creative-job {
+  border: 1px solid #ecdac8;
+  background: linear-gradient(180deg, #fffdf8 0%, #fff7f0 100%);
+}
+
+.template-creative .creative-photo {
+  position: relative;
+  z-index: 1;
+  min-height: 260px;
+  border-radius: 28px;
+  border: 2px dashed rgba(47, 127, 109, 0.35);
+  color: #2f7f6d;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(241, 178, 74, 0.12)),
+    repeating-linear-gradient(45deg, rgba(214, 107, 77, 0.08), rgba(214, 107, 77, 0.08) 14px, transparent 14px, transparent 28px);
+}
+
+.template-creative .bullet-list li::before,
+.template-creative .job-list li::before {
+  background: #f1b24a;
+}
+
+.template-timeline {
+  background: #fff;
+}
+
+.template-timeline .timeline-hero {
+  background: linear-gradient(180deg, rgba(15, 118, 110, 0.08), rgba(255, 255, 255, 1));
+  border-bottom: 1px solid #d8e1ea;
+}
+
+.template-timeline .timeline-columns {
+  grid-template-columns: 250px minmax(0, 1fr);
+}
+
+.template-timeline .timeline-sidebar {
+  background: #fbfdfd;
+  border-right: 1px solid #d8e1ea;
+}
+
+.template-timeline h2,
+.template-timeline .cv-role,
+.template-timeline .timeline-period {
+  color: #0f766e;
+}
+
+.template-timeline .tag {
+  background: #d8eeea;
+  color: #0f766e;
+}
+
+.template-timeline .timeline-photo {
+  border: 2px dashed #8dc7be;
+  border-radius: 18px;
+  min-height: 240px;
+  color: #0f766e;
+  background: linear-gradient(180deg, #f8fffd 0%, #edf8f5 100%);
+}
+
+.timeline-list {
+  position: relative;
+  display: grid;
+  gap: 18px;
+}
+
+.timeline-list::before {
+  content: '';
+  position: absolute;
+  left: 112px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #d8e1ea;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 26px;
+}
+
+.timeline-period {
+  position: relative;
+  display: grid;
+  gap: 4px;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.timeline-period::after {
+  content: '';
+  position: absolute;
+  right: -18px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #0f766e;
+  box-shadow: 0 0 0 6px #fff;
+}
+
+.timeline-card {
+  padding: 18px 20px;
+  border: 1px solid #d8e1ea;
+  border-radius: 18px;
+}
+
+.template-timeline .bullet-list li::before,
+.template-timeline .job-list li::before {
+  background: #0f766e;
+}
+
+@media (max-width: 1280px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .control-panel {
+    position: relative;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid rgba(31, 41, 55, 0.08);
+  }
+}
+
+@media (max-width: 900px) {
+  .preview-shell {
+    padding: 18px;
+  }
+
+  .preview-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .preview-stage {
+    padding: 12px;
+  }
+}
+
+/* ─── Tab navigation ─────────────────────────────────────────── */
+
+.panel-tab-bar {
+  display: flex;
+  gap: 8px;
+}
+
+.app-tab-btn {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(17, 24, 39, 0.1);
+  background: rgba(255, 255, 255, 0.7);
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #6b7280;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s, color 0.18s, transform 0.18s;
+}
+
+.app-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(139, 94, 60, 0.25);
+  color: #111827;
+}
+
+.app-tab-btn.active {
+  background: linear-gradient(135deg, #d66b4d 0%, #8b5e3c 100%);
+  border-color: transparent;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(139, 94, 60, 0.22);
+}
+
+/* ─── Diet page panel sidebar additions ─────────────────────── */
+
+.macro-version-picker {
+  display: grid;
+  gap: 8px;
+}
+
+.macro-version-card {
+  width: 100%;
+  padding: 12px 14px;
+  text-align: left;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  display: grid;
+  gap: 2px;
+  cursor: pointer;
+  font: inherit;
+  transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+}
+
+.macro-version-card:hover,
+.macro-version-card.active {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+  border-color: rgba(139, 94, 60, 0.3);
+}
+
+.macro-version-card.active {
+  background: linear-gradient(180deg, #fff7ef 0%, #fff 100%);
+}
+
+.macro-version-label {
+  font-weight: 700;
+  color: #111827;
+  font-size: 0.9rem;
+}
+
+.macro-version-desc {
+  color: #6b7280;
+  font-size: 0.8rem;
+}
+
+.macro-version-kcal {
+  color: #d66b4d;
+  font-size: 0.88rem;
+  margin-top: 2px;
+}
+
+.macro-bar-wrap {
+  display: grid;
+  gap: 10px;
+}
+
+.macro-bar {
+  display: flex;
+  height: 12px;
+  border-radius: 999px;
+  overflow: hidden;
+  gap: 2px;
+}
+
+.macro-bar-seg {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+
+.macro-legend {
+  display: grid;
+  gap: 6px;
+}
+
+.macro-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+}
+
+.macro-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.macro-name {
+  color: #374151;
+  flex: 1;
+}
+
+.macro-val {
+  font-weight: 700;
+  color: #111827;
+}
+
+.macro-kcal {
+  color: #9ca3af;
+  font-size: 0.78rem;
+}
+
+.meal-list-mini {
+  display: grid;
+  gap: 6px;
+}
+
+.meal-mini-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+  color: #374151;
+}
+
+.meal-mini-kcal {
+  font-weight: 700;
+  color: #d66b4d;
+}
+
+/* ─── Diet preview cards ─────────────────────────────────────── */
+
+.diet-meal-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.meal-card {
+  background: #fff;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+}
+
+.meal-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.meal-icon-time {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.meal-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.meal-name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.meal-time {
+  font-size: 0.78rem;
+  color: #9ca3af;
+}
+
+.meal-kcal-badge {
+  background: linear-gradient(135deg, #d66b4d, #8b5e3c);
+  color: #fff;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.meal-foods {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.meal-foods li {
+  font-size: 0.88rem;
+  color: #4b5563;
+  padding-left: 14px;
+  position: relative;
+}
+
+.meal-foods li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d66b4d;
+}
+
+.meal-macros {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.meal-macro-chip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.protein-chip {
+  background: rgba(230, 126, 34, 0.12);
+}
+
+.carbs-chip {
+  background: rgba(47, 127, 109, 0.12);
+}
+
+.fat-chip {
+  background: rgba(241, 178, 74, 0.18);
+}
+
+.chip-label {
+  color: #6b7280;
+}
+
+.chip-val {
+  font-weight: 700;
+  color: #111827;
+}
+
+/* ─── Diet document (PDF target) ────────────────────────────── */
+
+.diet-preview-stage {
+  margin-top: 8px;
+}
+
+.diet-page {
+  width: 794px;
+  min-height: 1123px;
+  background: #fff;
+  color: #1f2933;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
+  padding: 48px 52px;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+.diet-doc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #f0e6dc;
+}
+
+.diet-doc-title {
+  margin: 0 0 6px;
+  font-size: 2.4rem;
+  color: #111827;
+}
+
+.diet-doc-subtitle {
+  margin: 0;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.diet-doc-badge {
+  text-align: right;
+  display: grid;
+  gap: 2px;
+}
+
+.diet-doc-badge-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #9ca3af;
+}
+
+.diet-doc-badge-name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #d66b4d;
+}
+
+.diet-doc-section-title {
+  margin: 0 0 16px;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8b5e3c;
+}
+
+.diet-doc-targets {
+  margin-bottom: 36px;
+}
+
+.diet-doc-targets-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.diet-target-box {
+  padding: 16px;
+  border-radius: 16px;
+  border: 2px solid;
+  background: #fffdf8;
+  display: grid;
+  gap: 4px;
+  text-align: center;
+}
+
+.total-box {
+  border-color: #111827 !important;
+  background: #f7f7f5;
+}
+
+.diet-target-name {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6b7280;
+}
+
+.diet-target-grams {
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.total-kcal {
+  color: #111827 !important;
+}
+
+.diet-target-kcal {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.diet-doc-meals {
+  margin-bottom: 36px;
+}
+
+.diet-doc-meals-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.diet-doc-meal {
+  padding: 16px 18px;
+  border: 1px solid #f0e6dc;
+  border-radius: 14px;
+  background: #fffdf8;
+}
+
+.diet-doc-meal-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.diet-doc-meal-icon {
+  font-size: 1.4rem;
+}
+
+.diet-doc-meal-head h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #111827;
+  flex: 1;
+}
+
+.diet-doc-meal-time {
+  font-size: 0.78rem;
+  color: #9ca3af;
+  display: block;
+}
+
+.diet-doc-meal-kcal {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #d66b4d;
+  background: rgba(214, 107, 77, 0.1);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.diet-doc-meal-foods {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.diet-doc-meal-foods li {
+  font-size: 0.82rem;
+  color: #4b5563;
+  background: rgba(17, 24, 39, 0.04);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.diet-doc-meal-macros {
+  display: flex;
+  gap: 14px;
+  font-size: 0.82rem;
+  color: #6b7280;
+}
+
+.diet-doc-meal-macros strong {
+  color: #111827;
+}
+
+.diet-doc-daily {
+}
+
+.diet-doc-daily-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.diet-daily-item {
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid #f0e6dc;
+  background: #fffdf8;
+  display: grid;
+  gap: 6px;
+  text-align: center;
+}
+
+.diet-daily-item span {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #9ca3af;
+}
+
+.diet-daily-item strong {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.total-item {
+  border-color: #111827;
+  background: #f7f7f5;
+}
+
+.total-item strong {
+  color: #111827;
+  font-size: 1.1rem;
+}
+
+/* ─── Second export button ───────────────────────────────────── */
+
+.export-button-secondary {
+  margin-top: 10px;
+  background: linear-gradient(135deg, #2f7f6d 0%, #1e5a4f 100%);
+  box-shadow: 0 18px 30px rgba(47, 127, 109, 0.2);
+}
+
+/* ─── Nutrients document ─────────────────────────────────────── */
+
+.nutrients-page {
+  padding: 44px 52px;
+}
+
+.nutrients-grid {
+  display: grid;
+  gap: 28px;
+}
+
+.nutrient-section {
+  border: 1px solid #f0e6dc;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fffdf8;
+}
+
+.nutrient-section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 2px solid;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.nutrient-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.nutrient-section-title h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.nutrient-tiers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.nutrient-tier {
+  padding: 18px 20px;
+}
+
+.nutrient-tier + .nutrient-tier {
+  border-left: 1px solid #f0e6dc;
+}
+
+.nutrient-tier-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.primary-label {
+  background: rgba(230, 126, 34, 0.1);
+  color: #c0641a;
+}
+
+.secondary-label {
+  background: rgba(47, 127, 109, 0.1);
+  color: #2f7f6d;
+}
+
+.nutrient-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.nutrient-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.nutrient-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.secondary-bullet {
+  background: transparent !important;
+  border: 2px solid;
+  width: 7px;
+  height: 7px;
+}
+
+.primary-item {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.secondary-item {
+  color: #6b7280;
+}
+
+/* ─── Diet document sources + note ─────────────────────────── */
+
+.diet-doc-sources {
+  margin-top: 28px;
+}
+
+.diet-doc-sources-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.diet-doc-source-col {
+  padding: 16px;
+  border: 1px solid #f0e6dc;
+  border-radius: 14px;
+  background: #fffdf8;
+}
+
+.diet-doc-source-title {
+  margin: 0 0 10px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #374151;
+}
+
+.diet-doc-source-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 5px;
+}
+
+.diet-doc-source-list li {
+  font-size: 0.82rem;
+  color: #4b5563;
+  padding-left: 12px;
+  position: relative;
+}
+
+.diet-doc-source-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #d66b4d;
+}
+
+.diet-doc-note {
+  margin-top: 24px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: rgba(47, 127, 109, 0.07);
+  border-left: 3px solid #2f7f6d;
+  font-size: 0.88rem;
+  color: #374151;
+  line-height: 1.6;
+}
